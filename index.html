@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles/style.scss">
+    <title>Stopwatch-TS</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="container" id="container">
+            <div class="clock__block">
+                <h1 id="clock">
+                    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>,<span
+                        id="milliseconds">00</span>
+                </h1>
+            </div>
+            <div class="clock__controller">
+                <button class="controller__button" id="play">
+                    <svg style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="info" />
+                        <g id="icons">
+                            <path
+                                d="M3.9,18.9V5.1c0-1.6,1.7-2.6,3-1.8l12,6.9c1.4,0.8,1.4,2.9,0,3.7l-12,6.9C5.6,21.5,3.9,20.5,3.9,18.9z" />
+                        </g>
+                    </svg>
+                </button>
+                <button class="controller__button" disabled id="lap">
+                    <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="none" height="256" width="256" />
+                        <path
+                            d="M219.6,40.8a8.2,8.2,0,0,0-8.4.8c-28.3,21.2-52.3,11-80-.9s-60.3-25.9-96,.9h-.1l-.4.3-.2.2-.3.3-.3.3-.2.3-.3.3c0,.1-.1.2-.2.3l-.2.4c0,.1-.1.2-.1.3a.8.8,0,0,0-.2.4c-.1.1-.1.2-.2.4s-.1.2-.1.3-.1.3-.1.4-.1.2-.1.3-.1.3-.1.4V47c0,.1-.1.3-.1.4V216a8,8,0,0,0,16,0V172.1c26.9-18.1,50.1-8.2,76.8,3.3,16.3,6.9,33.8,14.4,52.6,14.4,13.8,0,28.3-4,43.4-15.4A8.1,8.1,0,0,0,224,168V48A8.2,8.2,0,0,0,219.6,40.8Z" />
+                    </svg>
+                </button>
+                <button class="controller__button" id="reset">
+                    <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.03033 2.46967C6.32322 2.76256 6.32322 3.23744 6.03033 3.53033L4.81066 4.75H11C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11C4.75 10.5858 5.08579 10.25 5.5 10.25C5.91421 10.25 6.25 10.5858 6.25 11C6.25 13.6234 8.37665 15.75 11 15.75C13.6234 15.75 15.75 13.6234 15.75 11C15.75 8.37665 13.6234 6.25 11 6.25H4.81066L6.03033 7.46967C6.32322 7.76256 6.32322 8.23744 6.03033 8.53033C5.73744 8.82322 5.26256 8.82322 4.96967 8.53033L2.46967 6.03033C2.17678 5.73744 2.17678 5.26256 2.46967 4.96967L4.96967 2.46967C5.26256 2.17678 5.73744 2.17678 6.03033 2.46967Z"
+                            fill="#212121" />
+                    </svg>
+                </button>
+            </div>
+            <div class="clock__laps">
+                <table id="laps">
+                    <tbody class="laps__header">
+
+                        <tr>
+                            <th class="id">ID</th>
+                            <th class="time">Time</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <a href="https://github.com/SBViside" target="_blank" class="alias">Made by SBV</a>
+
+    <script type="module" src="src/ts/app.ts"></script>
+</body>
+
+</html>

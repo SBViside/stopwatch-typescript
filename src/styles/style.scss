@@ -1,0 +1,255 @@
+@import "fonts";
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  list-style: none;
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+.alias {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: $gray;
+  user-select: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: $bg_default;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  &.active {
+    background-color: $bg_active;
+  }
+}
+
+// ::AFTER FOR VALUES
+%values {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: inherit;
+  font-size: 24px;
+  text-transform: lowercase;
+  font-weight: 400;
+}
+
+.clock__block {
+  margin-bottom: 50px;
+
+  #clock {
+    font-size: 100px;
+    color: $gray;
+
+    @media (max-width: 668px) {
+      font-size: 80px;
+
+      #milliseconds {
+        font-size: 42px !important;
+      }
+    }
+
+    @media (max-width: 438px) {
+      font-size: 54px;
+
+      #milliseconds {
+        font-size: 32px !important;
+      }
+    }
+
+    &.active {
+      color: $darkgray;
+    }
+
+    span {
+      font-size: inherit;
+      position: relative;
+    }
+
+    #milliseconds {
+      font-size: 60px;
+    }
+
+    #hours::after {
+      @extend %values;
+      content: "ч";
+    }
+    #minutes::after {
+      @extend %values;
+      content: "мин";
+    }
+    #seconds::after {
+      @extend %values;
+      content: "с";
+    }
+  }
+}
+
+.clock__controller {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 30px;
+
+  @media (max-width: 468px) {
+    gap: 20px;
+  }
+
+  .controller__button {
+    padding: 15px;
+    border-radius: 50%;
+    border: 2px solid #efefef;
+    background: #fdfdfd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    border-color: #efefef;
+    background-color: #fdfdfd;
+
+    &:hover {
+      border-color: #e7e7e7;
+      background-color: #f0f0f0;
+    }
+
+    @media (max-width: 468px) {
+      padding: 10px;
+    }
+
+    svg {
+      height: 30px;
+      width: 30px;
+      fill: #1b1b1b;
+
+      @media (max-width: 468px) {
+        height: 25px;
+        width: 25px;
+      }
+    }
+
+    &:disabled {
+      border-color: #ededed;
+      background: transparent;
+      cursor: default;
+
+      svg {
+        fill: #9f9f9f;
+
+        path {
+          fill: #9f9f9f;
+        }
+      }
+    }
+  }
+
+  #play {
+    background-color: #333333;
+    border-color: #333333;
+
+    &:hover {
+      background-color: #464646;
+      border-color: #464646;
+    }
+
+    svg {
+      fill: #ffffff;
+    }
+  }
+
+  #lap {
+  }
+
+  #reset {
+  }
+}
+
+.clock__laps {
+  flex: 0 0 30%;
+
+  #laps {
+    opacity: 0;
+    width: 500px;
+    max-height: 250px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.2s ease;
+
+    @media (max-width: 500px) {
+      width: 100vw;
+    }
+
+    &.show {
+      opacity: 1;
+    }
+
+    tr {
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        background-color: #9f9f9f;
+        color: #fdfdfd;
+      }
+
+      th {
+        flex: 0 0 50%;
+        text-align: left;
+        border-bottom: 3px solid $gray;
+      }
+      td {
+        flex: 0 0 50%;
+        padding: 10px;
+      }
+    }
+
+    .laps__header {
+      position: sticky;
+      top: 0;
+      background: lightgray;
+      user-select: none;
+      .id,
+      .time {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $gray;
+    }
+  }
+}
